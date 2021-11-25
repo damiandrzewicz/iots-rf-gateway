@@ -3,8 +3,10 @@
 #include "RFM69_ATC.h"
 #include "BaseFrame.h"
 #include "DataFrame.h"
-#include "NodeRegisterFrame.h"
 #include "NodeManager.h"
+#include "NodeRegisterFrame.h"
+#include "NodeAliveFrame.h"
+
 //#include "Timer.h"
 
 class Gateway
@@ -45,9 +47,8 @@ protected:
             );
 
             strncpy(buffer_.data(), data, buffer_.Size);
-            log_d("after strncpy: %s", buffer_.data());
 
-            if(!processRadioData()){
+            if(!processRadioData(radio_.SENDERID)){
                 return;
             }
         }
@@ -65,7 +66,7 @@ protected:
         }
     }
 
-    bool processRadioData(){
+    bool processRadioData(uint16_t nodeId){
         BaseFrameData bfd;
         BaseFrame baseFrame;
         if(!baseFrame.parse(buffer_, bfd)){
@@ -77,17 +78,17 @@ protected:
         if(bfd.actionDirection == ActionDirection::Request){
             // Register - can be send only from node to gateway
             if(bfd.actionType == ActionType::Register){
-                processRegisterNode();
+                processNodeRegister();
             }
             else if(bfd.actionType == ActionType::Alive){
-
+                processNodeAlive(nodeId);
             }
         }
 
         return true;
     }
 
-    bool processRegisterNode(){
+    bool processNodeRegister(){
         NodeRegisterRequest nrReq;
         NodeRegisterResponse nrRes;
 
@@ -97,13 +98,15 @@ protected:
             return false;
         }
 
-        auto nodeInfo = nodeManager_.findNextAvaliableNodeInfo();
+        auto nodeInfo = nodeManager_.findNextFreeId();
         if(!nodeInfo){
-            log_w("findNextAvaliableId failed!");
+            log_w("Node Pool full!");
             return false;
         }
 
-        nrRes.nodeId = nodeInfo->getNodeId();
+
+        nrRes.error = ActionError::Ok;
+        nrRes.nodeId = nodeInfo->nodeId_;
 
         if(!nrf.build(buffer_, nrRes)){
             log_w("build 'NodeRegisterResponse' failed!");
@@ -112,19 +115,56 @@ protected:
 
         sendACKRepsonse();
 
-        nodeInfo->doRegister(nrReq.uuid, nrReq.deviceClass, nrReq.sleepTime);
-        log_d("registered node: %s", nodeInfo->toStringShort().c_str());
+        nodeInfo = nodeManager_.registerNode(nodeInfo->nodeId_, nrReq.uuid, nrReq.deviceClass, nrReq.sleepTime);
+        log_d("Registered Node:[%s]", nodeInfo->shortInfo().c_str());
+        return true;
+    }
+
+    bool processNodeAlive(uint16_t nodeId)
+    {
+        NodeAliveFrame nodeAliveFrame;
+        NodeAliveRequest request;
+        NodeAliveResponse response;
+        
+        if(auto nodeState = nodeManager_.isRegistered(nodeId)){
+            // Parse request
+            if(!nodeAliveFrame.parse(request, buffer_)){
+                log_w("parsing 'NodeRegisterRequest' failed!");
+                return false;
+            }
+            response.error = ActionError::Ok;
+
+            // Build response
+            if(!nodeAliveFrame.build(buffer_, response)){
+                log_w("building 'NodeAliveResponse' failed!");
+                return false;
+            }
+
+            sendACKRepsonse();
+
+            nodeState->nodeInfo_.batteryPercent_ = request.batteryPercent;
+            nodeState->setActiveNow();
+        }
+        else{
+            response.error = ActionError::NotRegistered;
+
+            if(!nodeAliveFrame.build(buffer_, response)){
+                log_w("building 'NodeAliveResponse' failed!");
+                return false;
+            }
+ 
+            sendACKRepsonse();
+        }
+
         return true;
     }
 
     void checkNodesAlive(){
+        // Call it every 1 second
         if(millis() - lastNodeAliveCheck > 1000){
             lastNodeAliveCheck = millis();
-            log_d("checking inactive nodes...");
-            auto inactiveCount = nodeManager_.updateNodeStates();
-            log_d("found %d inactive nodes", inactiveCount);
+            nodeManager_.updateNodeStates();
         }
-
     }
 
 private:

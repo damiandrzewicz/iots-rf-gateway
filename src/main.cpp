@@ -2,18 +2,20 @@
 //#define LOG_LOCAL_LEVEL ESP_LOG_DEBUG
 
 #include <Arduino.h>
+#include <ArduinoLog.h>
 #include <SPI.h>
-#include "Gateway.h"
+#include "Gateway.hpp"
+#include <EEPROM.h>
 
 Gateway gateway;
 
 void setup() {
   Serial.begin(115200);
-  log_d("*start*");
+
+  // Initialize logger
+  Log.begin(LOG_LEVEL_VERBOSE, &Serial);
 
   gateway.setup();
-  
-  log_d("*end*");
 }
 
 void loop() {

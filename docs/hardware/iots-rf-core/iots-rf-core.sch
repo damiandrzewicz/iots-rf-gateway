@@ -1,0 +1,228 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L moteino:MoteinoR6 U1
+U 1 1 620D757F
+P 5300 3350
+F 0 "U1" H 5100 2300 50  0000 C CNN
+F 1 "MoteinoR6" H 5300 3400 50  0000 C CNN
+F 2 "" H 5050 3200 50  0001 C CNN
+F 3 "" H 5050 3200 50  0001 C CNN
+	1    5300 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C1
+U 1 1 620D7D15
+P 7350 3400
+F 0 "C1" H 7465 3446 50  0000 L CNN
+F 1 "47u" H 7465 3355 50  0000 L CNN
+F 2 "" H 7388 3250 50  0001 C CNN
+F 3 "~" H 7350 3400 50  0001 C CNN
+	1    7350 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR02
+U 1 1 620D811B
+P 5300 4500
+F 0 "#PWR02" H 5300 4250 50  0001 C CNN
+F 1 "GND" H 5305 4327 50  0000 C CNN
+F 2 "" H 5300 4500 50  0001 C CNN
+F 3 "" H 5300 4500 50  0001 C CNN
+	1    5300 4500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR01
+U 1 1 620D8591
+P 5200 2250
+F 0 "#PWR01" H 5200 2100 50  0001 C CNN
+F 1 "+3.3V" H 5215 2423 50  0000 C CNN
+F 2 "" H 5200 2250 50  0001 C CNN
+F 3 "" H 5200 2250 50  0001 C CNN
+	1    5200 2250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5200 2250 5200 2350
+Wire Wire Line
+	5300 4350 5300 4500
+$Comp
+L Device:Battery_Cell BT1
+U 1 1 620D8FEC
+P 6600 3450
+F 0 "BT1" H 6718 3546 50  0000 L CNN
+F 1 "3.3V Battery" H 6718 3455 50  0000 L CNN
+F 2 "" V 6600 3510 50  0001 C CNN
+F 3 "~" V 6600 3510 50  0001 C CNN
+	1    6600 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR03
+U 1 1 620D987E
+P 6600 3150
+F 0 "#PWR03" H 6600 3000 50  0001 C CNN
+F 1 "+3.3V" H 6615 3323 50  0000 C CNN
+F 2 "" H 6600 3150 50  0001 C CNN
+F 3 "" H 6600 3150 50  0001 C CNN
+	1    6600 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR04
+U 1 1 620D9B81
+P 6600 3650
+F 0 "#PWR04" H 6600 3400 50  0001 C CNN
+F 1 "GND" H 6605 3477 50  0000 C CNN
+F 2 "" H 6600 3650 50  0001 C CNN
+F 3 "" H 6600 3650 50  0001 C CNN
+	1    6600 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR06
+U 1 1 620DB6DB
+P 7350 3650
+F 0 "#PWR06" H 7350 3400 50  0001 C CNN
+F 1 "GND" H 7355 3477 50  0000 C CNN
+F 2 "" H 7350 3650 50  0001 C CNN
+F 3 "" H 7350 3650 50  0001 C CNN
+	1    7350 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR05
+U 1 1 620DB899
+P 7350 3150
+F 0 "#PWR05" H 7350 3000 50  0001 C CNN
+F 1 "+3.3V" H 7365 3323 50  0000 C CNN
+F 2 "" H 7350 3150 50  0001 C CNN
+F 3 "" H 7350 3150 50  0001 C CNN
+	1    7350 3150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6600 3150 6600 3250
+Wire Wire Line
+	6600 3550 6600 3650
+Wire Wire Line
+	7350 3150 7350 3250
+Wire Wire Line
+	7350 3550 7350 3650
+NoConn ~ 5350 2350
+NoConn ~ 5800 2800
+NoConn ~ 5800 2900
+NoConn ~ 5800 3200
+NoConn ~ 5800 3300
+NoConn ~ 5800 3400
+NoConn ~ 5800 3500
+NoConn ~ 5800 3600
+NoConn ~ 5800 3700
+NoConn ~ 5800 3800
+NoConn ~ 5800 3900
+NoConn ~ 5800 4000
+NoConn ~ 4800 4050
+NoConn ~ 4800 3950
+NoConn ~ 4800 3850
+NoConn ~ 4800 3750
+NoConn ~ 4800 3650
+NoConn ~ 4800 3550
+NoConn ~ 4800 3450
+NoConn ~ 4800 3350
+NoConn ~ 4800 3250
+NoConn ~ 4800 3150
+NoConn ~ 4800 2900
+NoConn ~ 4800 2800
+NoConn ~ 4800 2700
+Wire Notes Line
+	4600 1900 4600 4750
+Wire Notes Line
+	4600 4750 5900 4750
+Wire Notes Line
+	5900 1900 4600 1900
+Wire Notes Line
+	6400 1900 6400 4750
+Wire Notes Line
+	6400 4750 7700 4750
+Wire Notes Line
+	7700 4750 7700 1900
+Wire Notes Line
+	7700 1900 6400 1900
+Text Notes 4650 2000 0    50   ~ 0
+Moteino
+Text Notes 6450 2000 0    50   ~ 0
+Power
+Text GLabel 5850 3000 2    50   Input ~ 0
+INT1
+Wire Wire Line
+	5850 3000 5800 3000
+Text GLabel 5850 3100 2    50   Input ~ 0
+4
+Wire Wire Line
+	5850 3100 5800 3100
+$Comp
+L Switch:SW_Push SW?
+U 1 1 621DF84D
+P 3600 3550
+F 0 "SW?" H 3600 3835 50  0000 C CNN
+F 1 "SW_Push" H 3600 3744 50  0000 C CNN
+F 2 "" H 3600 3750 50  0001 C CNN
+F 3 "~" H 3600 3750 50  0001 C CNN
+	1    3600 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 621DFD02
+P 3900 3650
+F 0 "#PWR?" H 3900 3400 50  0001 C CNN
+F 1 "GND" H 3905 3477 50  0000 C CNN
+F 2 "" H 3900 3650 50  0001 C CNN
+F 3 "" H 3900 3650 50  0001 C CNN
+	1    3900 3650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3800 3550 3900 3550
+Wire Wire Line
+	3900 3550 3900 3650
+$Comp
+L Diode:1N4001 D?
+U 1 1 621FF080
+P 3150 3550
+F 0 "D?" H 3150 3334 50  0000 C CNN
+F 1 "1N4001" H 3150 3425 50  0000 C CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 3150 3375 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 3150 3550 50  0001 C CNN
+	1    3150 3550
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3400 3550 3300 3550
+Text GLabel 3500 3050 2    50   Input ~ 0
+4
+Text GLabel 2900 3550 0    50   Input ~ 0
+INT1
+Wire Wire Line
+	3500 3050 3400 3050
+Wire Wire Line
+	3400 3050 3400 3550
+Connection ~ 3400 3550
+Wire Wire Line
+	3000 3550 2900 3550
+$EndSCHEMATC

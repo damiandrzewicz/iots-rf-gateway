@@ -1,22 +1,54 @@
 #pragma once
 
 #include "Appliance.hpp"
-#include "StatusLed.hpp"
 
 class Gateway : public Appliance
 {
 public:
+    enum class State
+    {
+        VerifyConfig,
+        RadioListen,
+        WebSocketListen,
+        SerialListen,
+        ActionHandler,
+        RadioPairing,
+        FactoryReset,
+        RadioReset
+    };
+
     Gateway();
 
-    virtual void setup() override;
-    virtual void loop() override;
-
 protected:
-    // Status Led
-    virtual void statusLedBlink(int16_t speed) override;
-    friend void IRAM_ATTR onTimer();
+    virtual void setupStateMachine() override;
+    virtual void init() override;
+
+    /** States */
+    
+    // VerifyConfig,
+    void onVerifyConfig();
+
+    // RadioListen,
+    void onRadioListen();
+
+    // WebSocketListen,
+    void onWebSocketListen();
+
+    // SerialListen,
+    void onSerialListen();
+
+    // ActionHandler,
+    void onActionHandler();
+
+    // RadioPairing,
+    void onRadioPairing();
+
+    // FactoryReset,
+    void onFactoryReset();
+
+    // RadioReset
+    void onRadioReset();
 
 private:
-    static const uint8_t RadioPairPin_ = 0;
-    static StatusLed statusLed;
+
 };

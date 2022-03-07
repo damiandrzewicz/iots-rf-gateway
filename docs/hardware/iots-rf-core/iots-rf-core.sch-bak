@@ -1,0 +1,174 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L moteino:MoteinoR6 U1
+U 1 1 620D757F
+P 5300 3350
+F 0 "U1" H 5100 2300 50  0000 C CNN
+F 1 "MoteinoR6" H 5300 3400 50  0000 C CNN
+F 2 "" H 5050 3200 50  0001 C CNN
+F 3 "" H 5050 3200 50  0001 C CNN
+	1    5300 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C1
+U 1 1 620D7D15
+P 6900 3400
+F 0 "C1" H 7015 3446 50  0000 L CNN
+F 1 "47u" H 7015 3355 50  0000 L CNN
+F 2 "" H 6938 3250 50  0001 C CNN
+F 3 "~" H 6900 3400 50  0001 C CNN
+	1    6900 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR02
+U 1 1 620D811B
+P 5300 4500
+F 0 "#PWR02" H 5300 4250 50  0001 C CNN
+F 1 "GND" H 5305 4327 50  0000 C CNN
+F 2 "" H 5300 4500 50  0001 C CNN
+F 3 "" H 5300 4500 50  0001 C CNN
+	1    5300 4500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR01
+U 1 1 620D8591
+P 5200 2250
+F 0 "#PWR01" H 5200 2100 50  0001 C CNN
+F 1 "+3.3V" H 5215 2423 50  0000 C CNN
+F 2 "" H 5200 2250 50  0001 C CNN
+F 3 "" H 5200 2250 50  0001 C CNN
+	1    5200 2250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5200 2250 5200 2350
+Wire Wire Line
+	5300 4350 5300 4500
+$Comp
+L Device:Battery_Cell BT1
+U 1 1 620D8FEC
+P 6150 3450
+F 0 "BT1" H 6268 3546 50  0000 L CNN
+F 1 "3.3V Battery" H 6268 3455 50  0000 L CNN
+F 2 "" V 6150 3510 50  0001 C CNN
+F 3 "~" V 6150 3510 50  0001 C CNN
+	1    6150 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR03
+U 1 1 620D987E
+P 6150 3150
+F 0 "#PWR03" H 6150 3000 50  0001 C CNN
+F 1 "+3.3V" H 6165 3323 50  0000 C CNN
+F 2 "" H 6150 3150 50  0001 C CNN
+F 3 "" H 6150 3150 50  0001 C CNN
+	1    6150 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR04
+U 1 1 620D9B81
+P 6150 3650
+F 0 "#PWR04" H 6150 3400 50  0001 C CNN
+F 1 "GND" H 6155 3477 50  0000 C CNN
+F 2 "" H 6150 3650 50  0001 C CNN
+F 3 "" H 6150 3650 50  0001 C CNN
+	1    6150 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR06
+U 1 1 620DB6DB
+P 6900 3650
+F 0 "#PWR06" H 6900 3400 50  0001 C CNN
+F 1 "GND" H 6905 3477 50  0000 C CNN
+F 2 "" H 6900 3650 50  0001 C CNN
+F 3 "" H 6900 3650 50  0001 C CNN
+	1    6900 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR05
+U 1 1 620DB899
+P 6900 3150
+F 0 "#PWR05" H 6900 3000 50  0001 C CNN
+F 1 "+3.3V" H 6915 3323 50  0000 C CNN
+F 2 "" H 6900 3150 50  0001 C CNN
+F 3 "" H 6900 3150 50  0001 C CNN
+	1    6900 3150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6150 3150 6150 3250
+Wire Wire Line
+	6150 3550 6150 3650
+Wire Wire Line
+	6900 3150 6900 3250
+Wire Wire Line
+	6900 3550 6900 3650
+NoConn ~ 5350 2350
+NoConn ~ 5800 2800
+NoConn ~ 5800 2900
+NoConn ~ 5800 3000
+NoConn ~ 5800 3100
+NoConn ~ 5800 3200
+NoConn ~ 5800 3300
+NoConn ~ 5800 3400
+NoConn ~ 5800 3500
+NoConn ~ 5800 3600
+NoConn ~ 5800 3700
+NoConn ~ 5800 3800
+NoConn ~ 5800 3900
+NoConn ~ 5800 4000
+NoConn ~ 4800 4050
+NoConn ~ 4800 3950
+NoConn ~ 4800 3850
+NoConn ~ 4800 3750
+NoConn ~ 4800 3650
+NoConn ~ 4800 3550
+NoConn ~ 4800 3450
+NoConn ~ 4800 3350
+NoConn ~ 4800 3250
+NoConn ~ 4800 3150
+NoConn ~ 4800 2900
+NoConn ~ 4800 2800
+NoConn ~ 4800 2700
+Wire Notes Line
+	4600 1900 4600 4750
+Wire Notes Line
+	4600 4750 5900 4750
+Wire Notes Line
+	5900 4750 5900 1900
+Wire Notes Line
+	5900 1900 4600 1900
+Wire Notes Line
+	5950 1900 5950 4750
+Wire Notes Line
+	5950 4750 7250 4750
+Wire Notes Line
+	7250 4750 7250 1900
+Wire Notes Line
+	7250 1900 5950 1900
+Text Notes 4650 2000 0    50   ~ 0
+Moteino
+Text Notes 6000 2000 0    50   ~ 0
+Power
+$EndSCHEMATC

@@ -38,10 +38,14 @@ protected:
     void onSerialListen();
 
     // ActionHandler,
+    void onEnterActionHandler();
     void onActionHandler();
+    void onLeaveActionHandler();
 
     // RadioPairing,
+    void onEnterRadioPairing();
     void onRadioPairing();
+    void onLeaveRadioPairing();
 
     // FactoryReset,
     void onFactoryReset();
@@ -50,5 +54,6 @@ protected:
     void onRadioReset();
 
 private:
+    
 
 };
